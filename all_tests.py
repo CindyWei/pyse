@@ -36,7 +36,7 @@ for test in alltestnames:
 now = time.strftime("%Y-%m-%M-%H_%M_%S",time.localtime(time.time()))
 
 #定义个报告存放路径，支持相对路径。
-filename = 'E:\\automation\\Selenium Script\\pyse\\report\\'+now+'result.html'
+filename = 'E:\\automation\\GitHub\\pyse\\report\\'+now+'result.html'
 fp = file(filename, 'wb') 
 
 runner =HTMLTestRunner.HTMLTestRunner(
