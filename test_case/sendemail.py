@@ -23,7 +23,7 @@ password = '312314'
 #msg['Subject'] = Header(subject)
 #以上两句代码执行后，文件内容以附件形式保存
 #以下是HTML形式的文件内容，直接显示在邮件主体
-msg = MIMEText('<html><h1>你好！</h1></html>','html','utf-8')
+msg = MIMEText('<html><h1>你好！</h1></html>','text','utf-8')
 msg['Subject'] = subject
 
 smtp = smtplib.SMTP()

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>搜索测试报告</title>
+    <title>百度搜索测试报告</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
@@ -188,10 +188,10 @@ function showOutput(id, name) {
 --></script>
 
 <div class='heading'>
-<h1>搜索测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2014-02-13 16:49:11</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:53.410000</p>
-<p class='attribute'><strong>Status:</strong> Pass 2 Error 1</p>
+<h1>百度搜索测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2014-02-14 14:35:56</p>
+<p class='attribute'><strong>Duration:</strong> 0:01:42.907000</p>
+<p class='attribute'><strong>Status:</strong> Pass 4</p>
 
 <p class='description'>用例执行情况：</p>
 </div>
@@ -221,12 +221,12 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
-    <td>test_case.baidu_start.Baidu</td>
+<tr class='passClass'>
+    <td>baidu_start.Baidu</td>
     <td>2</td>
-    <td>1</td>
+    <td>2</td>
     <td>0</td>
-    <td>1</td>
+    <td>0</td>
     <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
@@ -235,44 +235,13 @@ function showOutput(id, name) {
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='ft1.2' class='none'>
-    <td class='errorCase'><div class='testcase'>test_baidu1</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        error</a>
-
-    <div id='div_ft1.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.2: Traceback (most recent call last):
-  File "E:\automation\GitHub\pyse\test_case\baidu_start.py", line 33, in test_baidu1
-    driver.find_element_by_name("wd").clear()
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 62, in clear
-    self._execute(Command.CLEAR_ELEMENT)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 228, in _execute
-    return self._parent.execute(command, params)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 165, in execute
-    self.error_handler.check_response(response)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 158, in check_response
-    raise exception_class(message, screen, stacktrace)
-InvalidElementStateException: Message: u'Element is not currently interactable and may not be manipulated' 
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_baidu1</div></td>
+    <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr class='passClass'>
-    <td>test_case.youdao_start.Youdao</td>
+    <td>register_start.Register</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -281,16 +250,30 @@ InvalidElementStateException: Message: u'Element is not currently interactable a
 </tr>
 
 <tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_register: 注册功能</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>youdao_start.Youdao</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_youdao_search: 有道搜索虫师</div></td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>3</td>
-    <td>2</td>
+    <td>4</td>
+    <td>4</td>
     <td>0</td>
-    <td>1</td>
+    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

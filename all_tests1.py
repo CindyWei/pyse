@@ -8,7 +8,7 @@ import HTMLTestRunner
 import os,time,datetime,sys
 import smtplib
 from email.mime.text import MIMEText
-#from email.mime.multipart import MEMEMultipart
+from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 
 #定义发送邮件
@@ -18,18 +18,30 @@ def sent_mail(file_new):
 	mail_to = "1584727048@qq.com"
 	f = open(file_new, 'rb')
 	mail_body = f.read()
+	time.sleep(3)
 	f.close()
-	msg = MIMEText(mail_body, _subtype = "html", _charset = 'utf-8')
+	#print mail_body
+	#msg = MIMEText(mail_body, _subtype = "html", _charset = 'utf-8')
 	#定义标题
-	msg['Subject'] = u"测试报告"
+	#msg['Subject'] = u"测试报告"
 	#定义发送时间（不定义可能有的邮件客户端会不显示发送时间）
-	msg['date'] = time.strftime('%a, %d %b %Y %H:%M:%S %z')
+	#msg['date'] = time.strftime('%a, %d %b %Y %H:%M:%S %z')
+
+	msgRoot = MIMEMultipart('related')  
+	msgRoot['Subject'] = u"测试报告" 
+  
+	#构造附件  
+	att = MIMEText(mail_body, 'base32', 'utf-8')  
+	att["Content-Type"] = 'application/octet-stream'  
+	att["Content-Disposition"] = 'attachment; filename="report.html"'  
+	msgRoot.attach(att) 
+
 	smtp = smtplib.SMTP()
 	#连接SMTP服务器
-	smtp.connect('smtp.126.com')
+	smtp.connect('smtp.163.com')
 	#用户名密码
 	smtp.login('weiyaxin312@163.com', '312314')
-	smtp.sendmail(mail_from, mail_to, msg.as_string())
+	smtp.sendmail(mail_from, mail_to, msgRoot.as_string())
 	smtp.quit()
 	print 'email has send out!'
 
@@ -38,12 +50,12 @@ def send_report():
 	result_dir = 'E:\\automation\\GitHub\\pyse\\report\\'
 	lists = os.listdir(result_dir)
 	lists.sort(key=lambda fn: os.path.getmtime(result_dir+"\\"+fn) if not os.path.isdir(result_dir+"\\"+fn) else 0)
-	print (u'最新测试生成的报告：'+lists[-1])
+	print ('上次生成的报告:'+lists[-2])
 	#找到最新成功的文件路径
-	file_new = os.path.join(result_dir,lists[-1])
-	print file_new
+	file = os.path.join(result_dir,lists[-2])
+	print file
 	#调用发邮件模块
-	send_mail(file_new)
+	sent_mail(file)
 
 listaa='E:\\automation\\GitHub\\pyse\\test_case'
 def creat_suite():
@@ -63,7 +75,7 @@ def creat_suite():
 
 
 now = time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))
-filename = 'E:\\automation\\Selenium Script\\pyse\\report\\'+now+'_result.html'
+filename = 'E:\\automation\\GitHub\\pyse\\report\\'+now+'_result.html'
 fp = file(filename, 'wb') 
 runner =HTMLTestRunner.HTMLTestRunner(
     stream=fp,
