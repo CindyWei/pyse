@@ -1,0 +1,9 @@
+#coding=utf-8
+
+from selenium import webdriver
+
+dr = webdriver.Chrome()
+base_url = "http://www.baidu.com"
+dr.get(base_url)
+title = "新闻"
+dr.find_element_by_link_text(title).click()

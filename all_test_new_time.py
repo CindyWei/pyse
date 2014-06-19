@@ -31,6 +31,15 @@ runner =HTMLTestRunner.HTMLTestRunner(
     title=u'百度搜索测试报告',
     description=u'用例执行情况：')
 
-#执行测试用例
-#for i in range(13683600004,13683600010):
-runner.run(alltestnames)
+#控制什么时间脚本执行
+k=1
+while k<2:
+    timing=time.strftime('%H_%M',time.localtime(time.time()))
+    if timing == '13_41':
+        print "开始运行脚本:"
+        runner.run(alltestnames)
+        print "运行完成退出"
+        break
+    else:
+        time.sleep(10)
+        print timing

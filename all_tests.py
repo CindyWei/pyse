@@ -7,8 +7,8 @@ import time
 
 #把test_case目录添加到path下，这里用的相对路径
 import sys 
-sys.path.append("\test_case")
-from test_case import *
+#sys.path.append("\test_case")
+#from test_case import *
 import allcase_list  #调用数组文件
 
 #获取数组方法
